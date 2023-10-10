@@ -1,4 +1,47 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+  // Маска телефона
+
+  [].forEach.call( document.querySelectorAll('.tel'), function(input) {
+    var keyCode;
+    function mask(event) {
+      event.keyCode && (keyCode = event.keyCode);
+      var pos = this.selectionStart;
+      if (pos < 3) event.preventDefault();
+      var matrix = "+7 (___) ___-__-__",
+          i = 0,
+          def = matrix.replace(/\D/g, ""),
+          val = this.value.replace(/\D/g, ""),
+          new_value = matrix.replace(/[_\d]/g, function(a) {
+              return i < val.length ? val.charAt(i++) : a
+          });
+      i = new_value.indexOf("_");
+      if (i != -1) {
+          i < 5 && (i = 3);
+          new_value = new_value.slice(0, i)
+      }
+      var reg = matrix.substr(0, this.value.length).replace(/_+/g,
+          function(a) {
+              return "\\d{1," + a.length + "}"
+          }).replace(/[+()]/g, "\\$&");
+      reg = new RegExp("^" + reg + "$");
+      if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) {
+        this.value = new_value;
+      }
+      if (event.type == "blur" && this.value.length < 5) {
+        this.value = "";
+      }
+    }
+
+    input.addEventListener("input", mask, false);
+    input.addEventListener("focus", mask, false);
+    input.addEventListener("blur", mask, false);
+    input.addEventListener("keydown", mask, false);
+
+});
+
+  // Свайперы
+
   const swiperBanner = new Swiper('.swiperBanner', {
     direction: 'horizontal',
     loop: true,
@@ -68,21 +111,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Перемещение элемента 
 
-  const place = document.querySelector('.headerBottom__callback');
+  const place = document.querySelector('.headerBottom__callback-wrapper');
   const enter = document.querySelector('.headerTop__phone-number');
   const back = document.querySelector('.headerTop__phone-text');
 
   if (place) {
     window.addEventListener('resize', function(event) {
       if (event.target.innerWidth < 577) {
-        place.before(enter);
+        place.append(enter);
       } else {
         back.before(enter);
       }
     }, true);
   
     if (window. innerWidth < 577) {
-      place.before(enter);
+      place.append(enter);
     }
   }
 
@@ -105,4 +148,116 @@ document.addEventListener("DOMContentLoaded", () => {
       placeH1.before(enterH1);
     }
   }
+
+  // Выпадающее меню
+
+  let btn_catalog = document.querySelector('.headerBottom__catalogMain');
+  let subCatalog = document.querySelector('.headerBottom__catalogSub');
+
+  if (btn_catalog) {
+    btn_catalog.addEventListener('mouseover', () => {
+      subCatalog.classList.add('headerBottom__catalogSub-active');
+    }); 
+
+    btn_catalog.addEventListener('mouseout', () => {
+      subCatalog.classList.remove('headerBottom__catalogSub-active');
+    }); 
+  }
+
+  if (subCatalog) {
+    subCatalog.addEventListener('mouseover', () => {
+      subCatalog.classList.add('headerBottom__catalogSub-active');
+    }); 
+
+    subCatalog.addEventListener('mouseout', () => {
+      subCatalog.classList.remove('headerBottom__catalogSub-active');
+    }); 
+  }
+
+  // Перемещение элемента Спика каталога
+
+  const place3 = document.querySelector('.headerBurger__inner');
+  const enter3 = document.querySelector('.headerBottom__nav');
+  const back3 = document.querySelector('.headerBottom__logo-wrapper');
+
+  if (place3) {
+    window.addEventListener('resize', function(event) {
+      if (event.target.innerWidth < 993) {
+        place3.prepend(enter3);
+      } else {
+        back3.after(enter3);
+      }
+    }, true);
+  
+    if (window.innerWidth < 993) {
+      place3.prepend(enter3);
+    }
+  }
+
+  // Перемещение элемента Заказать звонок
+
+  const place4 = document.querySelector('.headerBurger__call');
+  const enter4 = document.querySelector('.headerBottom__callback');
+  const back4 = document.querySelector('.headerBottom__callback-wrapper');
+
+  if (place4) {
+    window.addEventListener('resize', function(event) {
+      if (event.target.innerWidth < 577) {
+        place4.append(enter4);
+      } else {
+        back4.append(enter4);
+      }
+    }, true);
+  
+    if (window.innerWidth < 577) {
+      place4.append(enter4);
+    }
+  }
+
+  // Бургер меню
+
+  let burger_btn = document.querySelector('.headerBottom__btn');
+  let burger_close = document.querySelector('.headerBottom__close');
+  let bodyTag = document.querySelector('body');
+
+  let burger_menu = document.querySelector('.headerBurger');
+  
+  if (burger_btn) {
+    burger_btn.addEventListener('click', () => {
+      burger_btn.classList.toggle('active');
+      burger_close.classList.toggle('active');
+      bodyTag.classList.toggle('active');
+
+      burger_menu.classList.toggle('active');
+    });
+  }
+  if (burger_close) {
+    burger_close.addEventListener('click', () => {
+      burger_btn.classList.toggle('active');
+      burger_close.classList.toggle('active');
+      bodyTag.classList.toggle('active');
+      
+      burger_menu.classList.toggle('active');
+    });
+  }
+
+  // Подкаталог мобильный
+
+  let catalogRight = document.querySelector('.headerBottom__catalogRight');
+  let catalogLeft = document.querySelector('.headerBottom__catalogSub-back');
+
+  if (catalogRight) {
+    catalogRight.addEventListener('click', () => {
+      subCatalog.classList.add('headerBottom__catalogSub-active');
+    });
+  }
+  
+  if (catalogLeft) {
+    catalogLeft.addEventListener('click', () => {
+      subCatalog.classList.remove('headerBottom__catalogSub-active');
+    });
+  }
+  
+
+  console.log(catalogRight);
 });

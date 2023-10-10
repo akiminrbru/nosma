@@ -37,24 +37,91 @@
 					<div class="headerBottom__inner">
 						<div class="headerBottom__logo-wrapper">
 							<button class="headerBottom__btn"><img src="assets/images/burger-btn.svg" alt="" /></button>
-							<a class="headerBottom__logo" href="#">NOS<span>MA</span></a>
+							<button class="headerBottom__close"><img src="assets/images/burger-close.svg" alt="" /></button>
+							<a class="headerBottom__logo" href="./index.html">NOS<span>MA</span></a>
 						</div>
 						<nav class="headerBottom__nav">
 							<ul class="headerBottom__catalog">
 								<li>
-									<a class="headerBottom__catalogMain" href="#"><img src="assets/images/menu-line.svg" alt="" /><span>Каталог</span></a>
-									<ul></ul>
+									<div class="headerBottom__catalogMain-wrapper">
+										<a class="headerBottom__catalogMain" href="./catalog.html"><img class="headerBottom__catalogIcon" src="assets/images/menu-line.svg" alt="" /><span>Каталог</span></a>
+										<img class="headerBottom__catalogRight" src="assets/images/arrowCatRight.svg" alt="" />
+									</div>
+									<div class="headerBottom__catalogSub">
+										<div class="container">
+											<div class="headerBottom__catalogSub-inner">
+												<div class="headerBottom__catalogSub-image"><img src="assets/images/header1.jpg" alt="" /></div>
+												<div class="headerBottom__catalogSub-back">
+													<img src="assets/images/arrowCatLeft.svg" alt="" />
+													<p>Каталог</p>
+												</div>
+												<div class="headerBottom__catalogSub-list">
+													<div class="headerBottom__catalogSub-card">
+														<h5>Pumps</h5>
+														<ul>
+															<li><a href="#">FDP+ Lobe Pumps</a></li>
+															<li><a href="#">FTS Twin Screw Pumps</a></li>
+														</ul>
+													</div>
+													<div class="headerBottom__catalogSub-card">
+														<h5>Blenders</h5>
+														<ul>
+															<li><a href="#">FB 300 Table Blenders</a></li>
+															<li><a href="#">FB 100 – FB 200 Horizontal Blenders</a></li>
+														</ul>
+													</div>
+													<div class="headerBottom__catalogSub-card">
+														<h5>Systems</h5>
+														<ul>
+															<li><a href="#">Sausage System</a></li>
+															<li><a href="#">Unloading Barrel System</a></li>
+														</ul>
+													</div>
+													<div class="headerBottom__catalogSub-card">
+														<h5>Agitators</h5>
+														<ul>
+															<li><a href="#">FSEA Bottom Side Entry Agitators</a></li>
+															<li><a href="#">FAV Vertical Agitators</a></li>
+															<li><a href="#">FAP Portable Agitators</a></li>
+														</ul>
+													</div>
+													<div class="headerBottom__catalogSub-card">
+														<h5>Mixers</h5>
+														<ul>
+															<li><a href="#">FVM Vertical Mixers</a></li>
+															<li><a href="#">FIM Inline Mixers</a></li>
+															<li><a href="#">FBM Tank Bottom Mixers</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<ul class="headerBottom__mainlinks">
-								<li><a href="О нас"></a></li>
-								<li><a href="#">Новости</a></li>
+								<li><a href="./about.html">О нас</a></li>
+								<li><a href="./news.html">Новости</a></li>
 								<li><a href="#">Полезные материалы</a></li>
-								<li><a href="#">Контакты</a></li>
+								<li><a href="./contacts.html">Контакты</a></li>
 							</ul>
 						</nav>
 						<div class="headerBottom__callback-wrapper">
 							<button class="headerBottom__callback">Заказать зконок</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="headerBurger">
+				<div class="container">
+					<div class="headerBurger__inner">
+						<div class="headerBurger__call"></div>
+						<div class="headerBurger__location">
+							<p>Ростов-на-Дону, название улицы и дома</p>
+							<div class="headerBurger__lang">
+								<img src="assets/images/flagru.svg" alt="" />
+								<p>RU</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -98,7 +165,7 @@
 					</div>
 					<div class="mainForm__right">
 						<h4>Оставить заявку</h4>
-						<form action="#"><input type="text" placeholder="Ваше имя" /><input type="tel" placeholder="+7 (900) 000 00 00" /><input type="email" placeholder="E-mail" /> <button>Отправить</button></form>
+						<form action="#" method="post"><input type="text" required placeholder="Ваше имя" /><input required type="tel" class="tel" placeholder="+7 (900) 000 00 00" /><input required type="email" placeholder="E-mail" /> <button type="submit">Отправить</button></form>
 					</div>
 				</div>
 			</div>
@@ -112,22 +179,22 @@
 					</div>
 					<nav class="footer__nav">
 						<div class="footer__left">
-							<a class="footer__mainlink" href="#">Каталог</a>
+							<a class="footer__mainlink" href="./catalog.html">Каталог</a>
 							<ul>
-								<li><a href="#" id="">FDP+ Lobe Pumps</a></li>
-								<li><a href="#" id="">FTS Twin Screw Pumps</a></li>
-								<li><a href="#" id="">Sausage System</a></li>
-								<li><a href="#" id="">Unloading Barrel System</a></li>
-								<li><a href="#" id="">Mixing</a></li>
+								<li><a href="#">FDP+ Lobe Pumps</a></li>
+								<li><a href="#">FTS Twin Screw Pumps</a></li>
+								<li><a href="#">Sausage System</a></li>
+								<li><a href="#">Unloading Barrel System</a></li>
+								<li><a href="#">Mixing</a></li>
 							</ul>
 						</div>
 						<div class="footer__right">
 							<a class="footer__mainlink footer__mainlink-right" href="#">Покупателям</a>
 							<ul>
-								<li><a href="#" id="">О нас</a></li>
-								<li><a href="#" id="">Новости</a></li>
-								<li><a href="#" id="">Полезные материалы</a></li>
-								<li><a href="#" id="">Контакты</a></li>
+								<li><a href="./about.html">О нас</a></li>
+								<li><a href="./news.html">Новости</a></li>
+								<li><a href="#">Полезные материалы</a></li>
+								<li><a href="./contacts.html">Контакты</a></li>
 							</ul>
 						</div>
 					</nav>
