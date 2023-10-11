@@ -257,7 +257,101 @@ document.addEventListener("DOMContentLoaded", () => {
       subCatalog.classList.remove('headerBottom__catalogSub-active');
     });
   }
-  
 
-  console.log(catalogRight);
+
+  // Открытие попап
+
+  let callback = document.querySelector('.headerBottom__callback');
+  let popup = document.querySelector('.mainPopup');
+  let closePopup = document.querySelector('.mainPopup__close');
+  let popupInner = document.querySelector('.mainPopup__inner');
+
+  if (callback) {
+    callback.addEventListener('click', () => {
+      popup.classList.add('active');
+    });
+  }
+
+  if (closePopup) {
+    closePopup.addEventListener('click', () => {
+      popup.classList.remove('active');
+    });
+  }
+
+  if (popup) {
+    popup.addEventListener('click', () => {
+      popup.classList.remove('active');
+    });
+  }
+
+  if (popupInner) {
+    popupInner.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  }
+
+  // Отправка формы "Попап"
+
+  const postData = async (url, data) => {
+    let res = await fetch(url, {
+        method: 'POST',
+        body: data,
+    });
+
+    return await res;
+  };    
+  
+  let popupForm = document.querySelector('.mainPopup__form');
+  let pupupBtn = document.querySelector('.mainPopup__btn');
+  let inputs = popupForm.querySelectorAll('input');
+  let popupWarning = document.querySelector('.mainPopup__warning');
+  let popupWrap = document.querySelector('.mainPopup__wrapper');
+  let popupLoading = document.querySelector('.mainPopup__loading');
+
+  const clearInputs = () => {
+    inputs.forEach(item => {
+      item.value = '';
+    })
+  };
+
+  console.log(inputs);
+
+  let popupData = '';
+
+  let checked = false;
+
+  if (pupupBtn) {
+    pupupBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+  
+      inputs.forEach(el => {
+        if (el.value == '') {
+          popupWarning.classList.add('active');
+        } else {
+          popupWarning.classList.remove('active');
+          checked = true;
+        }
+      });
+
+      if (checked == true) {
+        popupData = new FormData(popupForm);
+        popupWrap.classList.add('send');
+        popupLoading.classList.add('send');
+        postData('send.php', popupData).then((res) => {
+          popupWrap.classList.remove('send');
+          popupLoading.classList.remove('send');
+          console.log(res);
+        })
+        .catch((e) => {
+            console.log(e);
+            popupWrap.classList.remove('send');
+            popupLoading.classList.remove('send');
+        })
+        .finally(() => {
+          clearInputs();
+        });
+      }
+
+    });
+  }
 });

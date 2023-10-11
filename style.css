@@ -2644,6 +2644,160 @@ body h2 {
 	text-decoration: underline;
 }
 
+/* Форма попап */
+
+.mainPopup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(6, 11, 16, 0);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: -10;
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.mainPopup.active {
+	z-index: 10000;
+	opacity: 1;
+	background: rgba(6, 11, 16, 0.7);
+}
+
+.mainPopup__inner {
+	border-radius: 15px;
+	background: #fff;
+	padding: 51px 53px 76px 52px;
+	position: relative;
+}
+
+.mainPopup__inner h2 {
+	color: #0b1a48;
+	font-family: "Exo 2", sans-serif;
+	font-size: 42px;
+	font-weight: 600;
+	margin-bottom: 15px;
+}
+
+.mainPopup__inner p {
+	color: #0b1a48;
+	font-family: "Inter", sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 140%;
+	margin-bottom: 32px;
+}
+
+.mainPopup__inner form {
+	display: flex;
+	flex-direction: column;
+}
+
+.mainPopup__inner form input {
+	margin-bottom: 15px;
+	border-radius: 5px;
+	border: 1px solid #dfdfdf;
+	background: #f3f5f7;
+	outline: none;
+	padding: 20px 25px;
+	color: #4c4d52;
+	font-family: "Inter", sans-serif;
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 140%;
+}
+
+.mainPopup__inner form button {
+	border-radius: 5px;
+	background-color: #1d41a3;
+	color: #fff;
+	font-family: "Inter", sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	cursor: pointer;
+	border: 0;
+	padding: 20px;
+	margin-top: 19px;
+	transition: background-color 0.3s ease-in-out;
+}
+
+.mainPopup__inner form button:hover {
+	background-color: #0f41c8;
+}
+
+.mainPopup__close {
+	width: 24px;
+	height: 24px;
+	position: absolute;
+	top: 25px;
+	right: 23px;
+	cursor: pointer;
+}
+
+.mainPopup .mainPopup__warning {
+	color: red;
+	margin-bottom: 5px;
+	text-align: center;
+	display: none;
+}
+
+.mainPopup .mainPopup__warning.active {
+	display: block;
+}
+
+.mainPopup__wrapper.send {
+	display: none;
+}
+
+.mainPopup__loading {
+	display: none;
+}
+
+.mainPopup__loading.send {
+	display: block;
+}
+
+.loader {
+	width: 48px;
+	height: 48px;
+	border: 5px solid #fff;
+	border-bottom-color: transparent;
+	border-radius: 50%;
+	display: inline-block;
+	box-sizing: border-box;
+	animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@media screen and (max-width: 576px) {
+	.mainPopup__inner {
+		margin: 0 25px;
+	}
+
+	.mainPopup__inner h2 {
+		font-size: 28px;
+	}
+
+	.mainPopup__inner {
+		padding: 30px 30px 40px 30px;
+	}
+
+	.mainPopup__inner p {
+		font-size: 15px;
+	}
+}
+
 /* Домашняя */
 
 .home {
