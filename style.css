@@ -2760,10 +2760,34 @@ body h2 {
 	display: block;
 }
 
+.mainPopup__success {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 10001;
+	background-color: rgba(0, 0, 0, 0.3);
+	display: none;
+}
+
+.mainPopup__success.active {
+	display: flex;
+}
+
+.mainPopup__success > div {
+	background-color: #fff;
+	padding: 20px 30px;
+	border-radius: 10px;
+}
+
 .loader {
 	width: 48px;
 	height: 48px;
-	border: 5px solid #fff;
+	border: 5px solid #000;
 	border-bottom-color: transparent;
 	border-radius: 50%;
 	display: inline-block;

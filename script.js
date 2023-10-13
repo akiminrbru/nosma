@@ -275,12 +275,14 @@ document.addEventListener("DOMContentLoaded", () => {
   if (closePopup) {
     closePopup.addEventListener('click', () => {
       popup.classList.remove('active');
+      popupSucces.classList.remove('active');
     });
   }
 
   if (popup) {
     popup.addEventListener('click', () => {
       popup.classList.remove('active');
+      popupSucces.classList.remove('active');
     });
   }
 
@@ -308,13 +310,13 @@ document.addEventListener("DOMContentLoaded", () => {
   let popupWrap = document.querySelector('.mainPopup__wrapper');
   let popupLoading = document.querySelector('.mainPopup__loading');
 
+  let popupSucces = document.querySelector('.mainPopup__success');
+
   const clearInputs = () => {
     inputs.forEach(item => {
       item.value = '';
     })
   };
-
-  console.log(inputs);
 
   let popupData = '';
 
@@ -337,9 +339,11 @@ document.addEventListener("DOMContentLoaded", () => {
         popupData = new FormData(popupForm);
         popupWrap.classList.add('send');
         popupLoading.classList.add('send');
+        
         postData('send.php', popupData).then((res) => {
           popupWrap.classList.remove('send');
           popupLoading.classList.remove('send');
+          popupSucces.classList.add('active');
           console.log(res);
         })
         .catch((e) => {
