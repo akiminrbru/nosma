@@ -982,6 +982,11 @@ body h2 {
 	align-items: center;
 }
 
+.footer__nav ul li a:hover {
+	color: #1d41a3;
+	text-decoration: underline;
+}
+
 .footer__nav ul li a::before {
 	content: url("assets/images/arrow-right.svg");
 	display: block;

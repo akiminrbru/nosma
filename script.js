@@ -45,12 +45,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const swiperBanner = new Swiper('.swiperBanner', {
     direction: 'horizontal',
     loop: true,
+    slidesPerView: 1,
+    watchOverflow: true,
+    centeredSlides: true,
     spaceBetween: 10,
     autoplay: {
       delay: 5000,
     },
 
-     // If we need pagination
+    // If we need pagination
     pagination: {
         el: '.swiper-pagination-banner',
         clickable: true,
