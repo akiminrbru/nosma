@@ -2511,7 +2511,7 @@ body h2 {
 	font-weight: 700;
 }
 
-.catalogMain__list {
+/* .catalogMain__list {
 	display: flex;
 	flex-direction: column;
 	gap: 40px;
@@ -2564,7 +2564,7 @@ body h2 {
 .catalogMain__card ul li a:hover {
 	color: #1d41a3;
 	text-decoration: underline;
-}
+} */
 
 @media screen and (max-width: 576px) {
 	.catalogMain__inner {
@@ -2576,7 +2576,7 @@ body h2 {
 		margin-bottom: 20px;
 	}
 
-	.catalogMain__card {
+	/* .catalogMain__card {
 		min-width: 100%;
 		min-height: auto;
 		padding: 25px 20px;
@@ -2592,7 +2592,7 @@ body h2 {
 
 	.catalogMain__card h5 {
 		font-size: 18px;
-	}
+	} */
 }
 
 /* Выпадающее меню */
@@ -2629,6 +2629,27 @@ body h2 {
 	font-size: 18px;
 	font-weight: 600;
 }
+
+/* Новое для шапки */
+
+.headerBottom__catalogSub-card h5 a {
+	color: #0b1a29;
+	text-decoration: none;
+	transition: color 0.3s ease-in-out;
+}
+
+.headerBottom__catalogSub-card h5 a span {
+	font-size: 24px;
+	font-weight: 400;
+	position: relative;
+	top: 1px;
+}
+
+.headerBottom__catalogSub-card h5 a:hover {
+	color: #1d41a3;
+}
+
+/*  */
 
 .headerBottom__catalogSub-card ul {
 	display: flex;
@@ -2846,4 +2867,108 @@ body h2 {
 .home ul a {
 	color: #000;
 	text-decoration: none;
+}
+
+/* Каталог новый */
+
+.catalogMain__list {
+	display: flex;
+	gap: 20px;
+	flex-wrap: wrap;
+}
+
+.catalogMain__card {
+	border-radius: 15px;
+	background: #fff;
+	padding: 14px 12px 37px 15px;
+	max-width: 310px;
+}
+
+.catalogMain__card img {
+	border-radius: 10px;
+	margin-bottom: 21px;
+}
+
+.catalogMain__card > div {
+	margin-left: 13.5px;
+	margin-right: 13.5px;
+}
+
+.catalogMain__card h5 {
+	color: #0b1a48;
+	font-family: "Inter", sans-serif;
+	font-size: 18px;
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+
+.catalogMain__card p {
+	margin-bottom: 10px;
+	color: #4c4d52;
+	font-family: "Inter", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 140%;
+	overflow: hidden;
+	width: 100%;
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+}
+
+.catalogMain__card a {
+	display: block;
+	margin-top: 58px;
+	border-radius: 8px;
+	border: 1.5px solid #1d41a3;
+	text-decoration: none;
+	padding: 16px;
+	text-align: center;
+	color: #1d41a3;
+	font-family: "Inter", sans-serif;
+	font-size: 14px;
+	font-weight: 600;
+	background-color: transparent;
+	transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.catalogMain__card a:hover {
+	background-color: #0058b0;
+	color: #fff;
+}
+
+.catalogMain {
+	background-color: #f7f7f7;
+}
+
+.catalogMainBread {
+	background-color: #f7f7f7;
+}
+
+@media screen and (max-width: 1330px) {
+	.catalogMain__list {
+		justify-content: space-between;
+	}
+
+	.catalogMain__card {
+		max-width: 100%;
+		width: 30%;
+		min-width: 250px;
+	}
+}
+
+@media screen and (max-width: 840px) {
+	.catalogMain__card {
+		width: 45%;
+	}
+}
+
+@media screen and (max-width: 570px) {
+	.catalogMain__list {
+		justify-content: center;
+	}
+
+	.catalogMain__card {
+		width: 100%;
+	}
 }
